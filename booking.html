@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt vé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadBookingPage()">
+  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
+
+  <div class="container">
+    <div class="booking-header">
+      <div id="movieInfo" style="flex:1"></div>
+      <div style="min-width:240px">
+        <label>Chọn rạp</label>
+        <select id="cinemaSelect" class="input" onchange="renderSeatGrid(); updateInfo()"></select>
+      </div>
+    </div>
+
+    <div class="screen">MÀN HÌNH</div>
+    <div id="seatGrid" class="seat-grid"></div>
+
+    <div class="info-box">
+      <div class="info-row"><div>Số ghế đã chọn</div><div id="seatCount">0</div></div>
+      <div class="info-row"><div>Giá 1 vé</div><div id="pricePer">75,000</div></div>
+      <div class="info-row"><div>Tổng tiền</div><div id="totalPrice">0</div></div>
+      <div style="text-align:right;margin-top:12px">
+        <button class="btn" onclick="goToPayment()">Thanh toán</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

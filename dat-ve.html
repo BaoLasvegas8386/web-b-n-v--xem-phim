@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Vé - Beta Cinemas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">BETA CINEMAS</div>
+</header>
+
+<div class="ticket-container">
+
+    <h2>🎟 Đặt Vé Xem Phim</h2>
+    <h3 id="movieName"></h3>
+
+    <label>Chọn suất chiếu:</label>
+    <select id="showtime">
+        <option>10:00 - 2D</option>
+        <option>13:00 - 2D</option>
+        <option>15:30 - 3D</option>
+        <option>20:00 - 3D</option>
+    </select>
+
+    <p><strong>Giá vé mỗi ghế:</strong> 90.000đ</p>
+
+    <div class="seat-map">
+
+        <!-- 12 ghế -->
+        <div class="seat-row">
+            <div class="seat" data-seat="A1"></div>
+            <div class="seat" data-seat="A2"></div>
+            <div class="seat" data-seat="A3"></div>
+            <div class="seat" data-seat="A4"></div>
+        </div>
+
+        <div class="seat-row">
+            <div class="seat" data-seat="B1"></div>
+            <div class="seat" data-seat="B2"></div>
+            <div class="seat" data-seat="B3"></div>
+            <div class="seat" data-seat="B4"></div>
+        </div>
+
+        <div class="seat-row">
+            <div class="seat" data-seat="C1"></div>
+            <div class="seat" data-seat="C2"></div>
+            <div class="seat" data-seat="C3"></div>
+            <div class="seat" data-seat="C4"></div>
+        </div>
+    </div>
+
+    <h3>Ghế đã chọn: <span id="selectedSeats">Không có</span></h3>
+    <h3>Tổng tiền: <span id="totalPrice">0</span>đ</h3>
+
+    <button class="confirm-btn">Xác nhận đặt vé</button>
+
+</div>
+
+<script>
+    // Lấy tên phim từ URL
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("movieName").innerText = "Phim: " + (params.get("movie") || "Không xác định");
+
+    const seats = document.querySelectorAll(".seat");
+    let selected = [];
+
+    seats.forEach(seat => {
+        seat.addEventListener("click", () => {
+            let seatNumber = seat.getAttribute("data-seat");
+
+            if (seat.classList.contains("selected")) {
+                seat.classList.remove("selected");
+                selected = selected.filter(s => s !== seatNumber);
+            } else {
+                seat.classList.add("selected");
+                selected.push(seatNumber);
+            }
+
+            document.getElementById("selectedSeats").innerText =
+                selected.length > 0 ? selected.join(", ") : "Không có";
+
+            document.getElementById("totalPrice").innerText =
+                (selected.length * 90000).toLocaleString();
+        });
+    });
+</script>
+
+</body>
+</html>

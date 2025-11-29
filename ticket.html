@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Vé của bạn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadTicketPage()">
+  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
+
+  <div class="container">
+    <div class="ticket">
+      <h3>Vé xem phim</h3>
+      <div><strong>Mã vé:</strong> <span id="t_code"></span></div>
+      <div><strong>Phim:</strong> <span id="t_movie"></span></div>
+      <div><strong>Suất:</strong> <span id="t_time"></span></div>
+      <div><strong>Rạp:</strong> <span id="t_cinema"></span></div>
+      <div><strong>Ghế:</strong> <span id="t_seats"></span></div>
+      <div class="code"><strong>Tổng tiền:</strong> <span id="t_total"></span> đ</div>
+      <div style="margin-top:12px"><button class="btn" onclick="window.print()">In vé / Lưu PDF</button>
+      <button class="btn secondary" onclick="window.location.href='index.html'">Về trang chủ</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

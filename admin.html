@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Admin - Beta</title><link rel="stylesheet" href="style.css"></head>
+<body onload="adminInit()">
+  <header class="header"><div class="left"><div class="logo">Admin - Beta</div></div></header>
+  <div class="container">
+    <div class="admin-grid">
+      <div class="card">
+        <h3>Thêm phim</h3>
+        <input id="movieTitle" class="input" placeholder="Tên phim">
+        <input id="movieDuration" class="input" placeholder="Thời lượng">
+        <input id="moviePoster" class="input" placeholder="URL poster">
+        <input id="movieShowtimes" class="input" placeholder="Suất (vd: 10:00,13:30,18:00)">
+        <button class="btn" onclick="addMovie()">Thêm phim</button>
+        <hr style="margin:12px 0">
+        <div id="adminMovies"></div>
+      </div>
+
+      <div class="card">
+        <h3>Thêm rạp</h3>
+        <input id="cinemaName" class="input" placeholder="Tên rạp">
+        <button class="btn" onclick="addCinema()">Thêm rạp</button>
+        <hr style="margin:12px 0">
+        <div id="adminCinemas"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

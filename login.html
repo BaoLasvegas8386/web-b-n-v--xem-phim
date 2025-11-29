@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Đăng nhập</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
+  <div class="container">
+    <div class="form-card">
+      <h3>Đăng nhập</h3>
+      <input id="li_email" class="input" placeholder="Email">
+      <input id="li_pass" type="password" class="input" placeholder="Mật khẩu">
+      <button class="btn" onclick="doLogin()">Đăng nhập</button>
+      <p style="margin-top:8px">Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+    </div>
+  </div>
+<script>
+  function doLogin(){
+    alert('Đây là demo. Bạn đã đăng nhập (giả).');
+    window.location.href='index.html';
+  }
+</script>
+</body>
+</html>
