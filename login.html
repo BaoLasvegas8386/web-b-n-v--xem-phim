@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Wolf Cinemas - Đăng nhập</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
-<main class="auth-wrapper">
+
+<div class="auth-wrapper">
   <div class="auth-card">
     <h1>Đăng nhập</h1>
-    <form id="loginForm">
-      <label class="form-group">
-        <span>Email</span>
-        <input type="email" id="loginEmail" required />
-      </label>
-      <label class="form-group">
-        <span>Mật khẩu</span>
-        <input type="password" id="loginPassword" required />
-      </label>
-      <button class="btn" type="submit">Đăng nhập</button>
-      <p class="auth-text">
-        Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
-      </p>
-    </form>
-  </div>
-</main>
 
-<script src="script.js"></script>
+    <label class="form-group">
+      <span>Email</span>
+      <input type="email" id="email" placeholder="Nhập email...">
+    </label>
+
+    <label class="form-group">
+      <span>Mật khẩu</span>
+      <input type="password" id="password" placeholder="Nhập mật khẩu...">
+    </label>
+
+    <button class="btn" id="loginBtn">Đăng nhập</button>
+
+    <p class="auth-text">Chưa có tài khoản?
+      <a href="register.html">Đăng ký</a>
+    </p>
+  </div>
+</div>
+
+<script>
+document.getElementById("loginBtn").onclick = () => {
+
+  const email = document.getElementById("email").value.trim();
+  const pass  = document.getElementById("password").value.trim();
+
+  if (!email || !pass) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
+    return;
+  }
+
+  // lấy tài khoản đã đăng ký
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!user) {
+    alert("Tài khoản không tồn tại!");
+    return;
+  }
+
+  if (email === user.email && pass === user.password) {
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", user.name);
+
+    window.location.href = "index.html";
+  } else {
+    alert("Sai email hoặc mật khẩu!");
+  }
+};
+</script>
+
 </body>
 </html>

@@ -1,9 +1,9 @@
 /* ============================================
-      SEARCH ENGINE — FINAL FIXED VERSION
+      SEARCH ENGINE — FIX HOÀN CHỈNH
 ============================================ */
 
 const searchInput = document.getElementById("searchInput");
-const searchBox   = document.getElementById("searchResults");
+const searchBox = document.getElementById("searchResults");
 
 if (searchInput && searchBox) {
 
@@ -34,10 +34,9 @@ if (searchInput && searchBox) {
     }
   ];
 
-  //  ẨN dropdown khi click ra ngoài
   document.addEventListener("click", (e) => {
     if (!searchInput.contains(e.target) && !searchBox.contains(e.target)) {
-      searchBox.classList.remove("show");
+      searchBox.style.display = "none";
     }
   });
 
@@ -47,7 +46,7 @@ if (searchInput && searchBox) {
     searchBox.innerHTML = "";
 
     if (!key) {
-      searchBox.classList.remove("show");
+      searchBox.style.display = "none";
       return;
     }
 
@@ -58,11 +57,11 @@ if (searchInput && searchBox) {
 
     if (results.length === 0) {
       searchBox.innerHTML = "<div class='search-item'>Không tìm thấy phim</div>";
-      searchBox.classList.add("show");
+      searchBox.style.display = "block";
       return;
     }
 
-    searchBox.classList.add("show");
+    searchBox.style.display = "block";
 
     results.forEach(movie => {
       let div = document.createElement("div");
@@ -89,44 +88,114 @@ if (searchInput && searchBox) {
 
 
 /* ============================================
-      CLICK MOVIE-CARD — CHUYỂN TRANG ĐẶT VÉ
+      CLICK MOVIE-CARD — CHUYỂN TRANG
 ============================================ */
 
 document.querySelectorAll(".movie-card").forEach(card => {
-  card.addEventListener("click", function(event) {
 
-    // Nếu bấm vào nút giờ chiếu → không chạy card
+  card.addEventListener("click", function (event) {
+
     if (event.target.closest(".showtime-btn")) return;
 
     const link = card.dataset.link;
     if (!link) return;
 
-    // Fade effect
-    document.body.classList.add("fade-out");
-
-    setTimeout(() => {
-      window.location.href = link;
-    }, 300);
+    window.location.href = link;
 
   });
+
 });
 
 
 /* ============================================
-      RIPPLE CLICK EFFECT (TUỲ CHỌN)
+      SEATS PAGE — CHỌN GHẾ
 ============================================ */
 
-document.querySelectorAll(".movie-card").forEach(card => {
-  card.addEventListener("click", function(e) {
+if (document.getElementById("seatArea")) {
 
-    if (e.target.closest(".showtime-btn")) return;
+  const seatArea = document.getElementById("seatArea");
+  const goPayment = document.getElementById("goPayment");
+  const rows = ["A", "B", "C", "D", "E"];
+  const selectedSeats = [];
 
-    const rect = this.getBoundingClientRect();
-    this.style.setProperty("--x", `${e.clientX - rect.left}px`);
-    this.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  document.getElementById("movieName").textContent = localStorage.getItem("movie");
+  document.getElementById("cinemaName").textContent = localStorage.getItem("cinema");
+  document.getElementById("dateShow").textContent = localStorage.getItem("date");
+  document.getElementById("showtime").textContent = localStorage.getItem("time");
 
-    this.classList.add("clicked");
-    setTimeout(() => this.classList.remove("clicked"), 500);
+  rows.forEach(r => {
+    for (let i = 1; i <= 10; i++) {
+      const code = r + i;
+      const seat = document.createElement("div");
+      seat.className = "seat";
+      seat.dataset.seat = code;
+      seat.textContent = code;
 
+      seat.onclick = () => {
+        seat.classList.toggle("selected");
+
+        if (selectedSeats.includes(code)) {
+          selectedSeats.splice(selectedSeats.indexOf(code), 1);
+        } else {
+          selectedSeats.push(code);
+        }
+      };
+
+      seatArea.appendChild(seat);
+    }
   });
-});
+
+  goPayment.onclick = () => {
+    if (selectedSeats.length === 0) {
+      alert("Bạn chưa chọn ghế!");
+      return;
+    }
+
+    localStorage.setItem("seats", JSON.stringify(selectedSeats));
+    window.location.href = "payment.html";
+  };
+
+}
+
+
+/* ============================================
+      PAYMENT PAGE
+============================================ */
+
+if (document.getElementById("totalMoney")) {
+
+  const movie = localStorage.getItem("movie");
+  const cinema = localStorage.getItem("cinema");
+  const date = localStorage.getItem("date");
+  const time = localStorage.getItem("time");
+  const seats = JSON.parse(localStorage.getItem("seats"));
+
+  document.getElementById("movieName").textContent = movie;
+  document.getElementById("cinemaName").textContent = cinema;
+  document.getElementById("dateShow").textContent = date;
+  document.getElementById("showtime").textContent = time;
+  document.getElementById("seatList").textContent = seats.join(", ");
+
+  const total = seats.length * 65000;
+  document.getElementById("totalMoney").textContent = total.toLocaleString() + "đ";
+
+  document.getElementById("confirmPay").onclick = () => {
+    window.location.href = "ticket.html";
+  };
+}
+
+
+/* ============================================
+      TICKET PAGE
+============================================ */
+
+if (document.getElementById("ticketPage")) {
+
+  document.getElementById("movieName").textContent = localStorage.getItem("movie");
+  document.getElementById("cinemaName").textContent = localStorage.getItem("cinema");
+  document.getElementById("dateShow").textContent = localStorage.getItem("date");
+  document.getElementById("showtime").textContent = localStorage.getItem("time");
+
+  const seats = JSON.parse(localStorage.getItem("seats"));
+  document.getElementById("seatList").textContent = seats.join(", ");
+}

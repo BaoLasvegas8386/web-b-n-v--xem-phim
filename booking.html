@@ -5,6 +5,7 @@
   <title>Wolf Cinemas - Đặt vé</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="fade-in">
 
 <header class="header">
@@ -19,7 +20,6 @@
 
   <a href="login.html" class="btn btn-outline">Đăng nhập</a>
 </header>
-
 
 <main class="page-wrapper fade-slide-up">
   <h1>Xác nhận thông tin đặt vé</h1>
@@ -79,6 +79,48 @@
   </div>
 </main>
 
-<script src="script.js"></script>
+<script>
+/* ================================
+   NHẬN THAM SỐ TỪ URL
+================================ */
+const params = new URLSearchParams(window.location.search);
+
+const movieFromURL  = params.get("movie");
+const timeFromURL   = params.get("time");
+const imgFromURL    = params.get("img");
+const cinemaFromURL = params.get("cinema");
+
+/* ================================
+   GÁN VÀO GIAO DIỆN
+================================ */
+const movieSel  = document.getElementById("movieSelect");
+const timeSel   = document.getElementById("showtimeSelect");
+const cinemaSel = document.getElementById("cinema");
+const dateInput = document.getElementById("date");
+
+if (movieFromURL)  movieSel.value   = movieFromURL;
+if (timeFromURL)   timeSel.value    = timeFromURL;
+if (cinemaFromURL) cinemaSel.value  = cinemaFromURL;
+
+/* ================================
+   NÚT TIẾP TỤC
+================================ */
+document.getElementById("goSeats").onclick = () => {
+
+  if (!movieSel.value || !timeSel.value || !cinemaSel.value || !dateInput.value) {
+    alert("Vui lòng chọn đủ thông tin!");
+    return;
+  }
+
+  localStorage.setItem("movie", movieSel.value);
+  localStorage.setItem("time", timeSel.value);
+  localStorage.setItem("cinema", cinemaSel.value);
+  localStorage.setItem("date", dateInput.value);
+  localStorage.setItem("img", imgFromURL || "");
+
+  window.location.href = "seats.html";
+};
+</script>
+
 </body>
 </html>

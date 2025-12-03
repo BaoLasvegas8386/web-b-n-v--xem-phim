@@ -5,7 +5,9 @@
   <title>Wolf Cinemas - Danh sách rạp</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="fade-in">
+
 <header class="header">
   <div class="left">
     <div class="logo">Wolf Cinemas</div>
@@ -61,20 +63,17 @@
 
 <script>
 // ===============================
-// CLICK RẠP → BOOKING.HTML
+// CLICK RẠP → SANG BOOKING
 // ===============================
 document.querySelectorAll(".cinema-card").forEach(card => {
-
   card.style.cursor = "pointer";
 
   card.addEventListener("click", function (e) {
-    // Ngưng click nếu nhấn vào nút
     if (e.target.closest("button")) return;
 
     const url = this.dataset.link;
     if (!url) return;
 
-    // Hiệu ứng fade-out
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
