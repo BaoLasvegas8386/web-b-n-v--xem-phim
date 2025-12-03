@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="UTF-8"><title>Đăng ký</title><link rel="stylesheet" href="style.css"></head>
-<body>
-  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
-  <div class="container">
-    <div class="form-card">
-      <h3>Đăng ký</h3>
-      <input id="rg_name" class="input" placeholder="Họ và tên">
-      <input id="rg_email" class="input" placeholder="Email">
-      <input id="rg_pass" class="input" placeholder="Mật khẩu" type="password">
-      <button class="btn" onclick="doRegister()">Tạo tài khoản</button>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Đăng ký</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+<main class="auth-wrapper">
+  <div class="auth-card">
+    <h1>Đăng ký tài khoản</h1>
+    <form id="registerForm">
+      <label class="form-group">
+        <span>Họ tên</span>
+        <input type="text" id="regName" required />
+      </label>
+      <label class="form-group">
+        <span>Email</span>
+        <input type="email" id="regEmail" required />
+      </label>
+      <label class="form-group">
+        <span>Mật khẩu</span>
+        <input type="password" id="regPassword" required />
+      </label>
+      <button class="btn" type="submit">Đăng ký</button>
+      <p class="auth-text">
+        Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+      </p>
+    </form>
   </div>
-<script>
-  function doRegister(){ alert('Tạo tài khoản (demo).'); window.location.href='login.html'; }
-</script>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

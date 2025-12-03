@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Chọn ghế</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html">Rạp</a>
+    </nav>
+  </div>
+
+  <div class="search-container">
+    <input type="text" class="search" placeholder="Tìm phim, rạp..." />
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <a href="login.html" class="login-btn">Đăng nhập</a>
+</header>
+
+<main class="page-wrapper">
+
+  <h1>Chọn ghế</h1>
+
+  <div class="booking-summary">
+    <p><strong>Phim:</strong> <span id="movieName"></span></p>
+    <p><strong>Rạp:</strong> <span id="cinemaName"></span></p>
+    <p><strong>Ngày:</strong> <span id="dateShow"></span></p>
+    <p><strong>Giờ chiếu:</strong> <span id="showtime"></span></p>
+  </div>
+
+  <div class="screen">MÀN HÌNH</div>
+
+  <div class="seats-grid" id="seatArea"></div>
+
+  <div class="seat-note">
+    <span class="seat sample"></span> Ghế trống
+    <span class="seat sample selected"></span> Ghế bạn chọn
+  </div>
+
+  <button class="btn" id="goPayment">Tiếp tục thanh toán</button>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Thanh toán</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Thanh toán</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="loadPaymentPage()">
-  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
 
-  <div class="container">
-    <div class="page-title">Xác nhận & Thanh toán</div>
+<body class="fade-in">
 
-    <div class="card">
-      <div style="margin-bottom:12px"><strong>Phim:</strong> <span id="p_movie"></span></div>
-      <div style="margin-bottom:12px"><strong>Suất:</strong> <span id="p_time"></span></div>
-      <div style="margin-bottom:12px"><strong>Rạp:</strong> <span id="p_cinema"></span></div>
-      <div style="margin-bottom:12px"><strong>Ghế:</strong> <span id="p_seats"></span></div>
-      <div style="margin-bottom:12px"><strong>Tổng:</strong> <span id="p_total"></span> đ</div>
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+  </div>
+</header>
 
-      <div style="margin-top:10px"><strong>Chọn phương thức thanh toán:</strong></div>
-      <div class="pay-methods" style="margin-top:10px">
-        <div class="pay-method" onclick="doPayment('Momo')">Thanh toán Momo</div>
-        <div class="pay-method" onclick="doPayment('ATM')">Thanh toán ATM</div>
-        <div class="pay-method" onclick="doPayment('Tiền mặt')">Thanh toán khi nhận vé</div>
-      </div>
+<main class="page-wrapper">
+
+  <h1 class="title">Thanh toán vé xem phim</h1>
+
+  <div class="payment-card">
+
+    <div class="info-section">
+      <h3>Thông tin vé</h3>
+
+      <p><strong>Phim:</strong> <span id="movieName"></span></p>
+      <p><strong>Rạp:</strong> <span id="cinemaName"></span></p>
+      <p><strong>Ngày:</strong> <span id="dateShow"></span></p>
+      <p><strong>Giờ chiếu:</strong> <span id="showtime"></span></p>
+      <p><strong>Ghế:</strong> <span id="seatList"></span></p>
     </div>
+
+    <div class="pay-section">
+      <h3>Phương thức thanh toán</h3>
+
+      <select id="method" class="select-pay">
+        <option>Ví MoMo</option>
+        <option>ATM nội địa</option>
+        <option>Visa/MasterCard</option>
+      </select>
+
+      <p class="total">
+        Tổng tiền: <strong id="totalMoney"></strong>
+      </p>
+
+      <button id="confirmPay" class="btn-glow">Thanh toán</button>
+      <div id="loading" class="loading hidden">Đang xử lý...</div>
+    </div>
+
   </div>
 
-  <script src="script.js"></script>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

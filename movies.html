@@ -2,47 +2,109 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Danh Sách Phim</title>
+    <title>Wolf Cinemas - Phim đang chiếu</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<header>
-    <h2>🎬 Beta Cinemas</h2>
+<body class="fade-in">
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Lịch Chiếu</a></li>
-            <li><a href="movies.html">Phim</a></li>
-            <li><a href="cinemas.html">Rạp</a></li>
-        </ul>
-    </nav>
+<header class="header">
+    <div class="left">
+        <div class="logo">Wolf Cinemas</div>
+        <nav class="menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="movies.html" class="active">Phim</a>
+            <a href="cinemas.html">Rạp</a>
+            <a href="booking.html">Đặt vé</a>
+        </nav>
+    </div>
+    <div class="right">
+        <input class="search" placeholder="Tìm phim, rạp...">
+        <a href="login.html" class="btn btn-outline">Đăng nhập</a>
+    </div>
 </header>
 
-<div class="container">
+<main class="page-wrapper fade-slide-up">
 
-    <h2>Phim Đang Chiếu</h2>
+    <h1 class="section-title">Tất cả phim</h1>
 
-    <div class="movie-box">
-        <img src="https://i.imgur.com/9hKz9Xo.jpeg">
-        <div class="info">
-            <h3>Truy Tìm Long Diên Hương</h3>
-            <button onclick="chooseMovie('Truy Tìm Long Diên Hương')">Chọn phim</button>
-        </div>
+    <div class="movies-grid">
+
+        <!-- PHIM 1 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Phòng Trọ Ma Bầu&img=Picture/phongtroma-bau.jpg.jpg&time=10:00">
+
+            <img src="Picture/phongtroma-bau.jpg.jpg" alt="">
+            <div class="movie-info">
+                <h3>Phòng Trọ Ma Bầu</h3>
+                <p class="movie-meta">2D • 101 phút</p>
+                <p class="movie-tag">Kinh dị, Hài hước</p>
+            </div>
+        </article>
+
+        <!-- PHIM 2 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Truy Tìm Long Diên Hương&img=Picture/truytimlongdienhuong.jpg.jpg&time=10:20">
+
+            <img src="Picture/truytimlongdienhuong.jpg.jpg" alt="">
+            <div class="movie-info">
+                <h3>Truy Tìm Long Diên Hương</h3>
+                <p class="movie-meta">2D • 103 phút</p>
+                <p class="movie-tag">Hành động, Hài hước</p>
+            </div>
+        </article>
+
+        <!-- PHIM 3 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Cưới Vợ Cho Cha&img=Picture/cuoivochocha.jpg.jpg&time=09:40">
+
+            <img src="Picture/cuoivochocha.jpg.jpg" alt="">
+            <div class="movie-info">
+                <h3>Cưới Vợ Cho Cha</h3>
+                <p class="movie-meta">2D • 112 phút</p>
+                <p class="movie-tag">Hài hước, Tình cảm</p>
+            </div>
+        </article>
+
+        <!-- PHIM 4 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Phi Vụ Động Trời 2&img=Picture/zootopia2.jpg.jpg&time=11:10">
+
+            <img src="Picture/zootopia2.jpg.jpg" alt="">
+            <div class="movie-info">
+                <h3>Phi Vụ Động Trời 2</h3>
+                <p class="movie-meta">2D • 107 phút</p>
+                <p class="movie-tag">Hoạt hình, Phiêu lưu</p>
+            </div>
+        </article>
+
     </div>
 
-    <h2>Phim Sắp Chiếu</h2>
+</main>
 
-    <div class="movie-box">
-        <img src="https://i.imgur.com/DK0yUxK.jpeg">
-        <div class="info">
-            <h3>Godzilla x Kong 2</h3>
-            <button onclick="chooseMovie('Godzilla x Kong 2')">Đặt trước</button>
-        </div>
-    </div>
+<script>
+/* ============================
+    CLICK MOVIE-CARD → BOOKING
+============================ */
+document.querySelectorAll(".movie-card").forEach(card => {
+    card.style.cursor = "pointer"; // tạo cảm giác có thể bấm
 
-</div>
+    card.addEventListener("click", function(event) {
+        // Nếu click vào nút giờ chiếu thì không chạy card
+        if (event.target.closest(".showtime-btn")) return;
 
-<script src="script.js"></script>
+        const url = this.dataset.link;
+        if (!url) return;
+
+        // hiệu ứng fade-out nhẹ
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 200);
+    });
+});
+</script>
+
 </body>
 </html>

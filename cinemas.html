@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Chọn Rạp</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Danh sách rạp</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
-
-  <div class="container">
-    <div class="page-title">Danh sách rạp</div>
-    <div id="cinemaList"></div>
+<body class="fade-in">
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html" class="active">Rạp</a>
+      <a href="booking.html">Đặt vé</a>
+    </nav>
   </div>
+  <div class="right">
+    <input class="search" placeholder="Tìm rạp..." />
+  </div>
+</header>
 
-  <script src="script.js"></script>
-  <script>
-    const cinemas = JSON.parse(localStorage.getItem('cinemas')||'[]');
-    const el = $('#cinemaList');
-    el.innerHTML = cinemas.map(c=>`<div class="card" style="margin-bottom:12px"><h4>${c.name}</h4><button class="btn" onclick="localStorage.setItem('lastCinema','${c.id}'); alert('Đã chọn rạp ${c.name}. Quay lại chọn suất để đặt vé.');">Chọn rạp này</button></div>`).join('');
-  </script>
+<main class="page-wrapper">
+  <h1>Hệ thống rạp Wolf Cinemas</h1>
+
+  <div class="cinema-grid">
+
+    <!-- RẠP 1 -->
+    <div class="cinema-card"
+         data-link="booking.html?cinema=Wolf Biên Hòa">
+
+      <h3>Wolf Biên Hòa</h3>
+      <p>Đường Võ Thị Sáu, Biên Hòa, Đồng Nai</p>
+      <p>Phòng chiếu: 5 • Ghế: 500</p>
+      <button class="btn btn-sm" onclick="event.stopPropagation()">Xem lịch chiếu</button>
+    </div>
+
+    <!-- RẠP 2 -->
+    <div class="cinema-card"
+         data-link="booking.html?cinema=Wolf Quận 7">
+
+      <h3>Wolf Quận 7</h3>
+      <p>Nguyễn Văn Linh, Quận 7, TP.HCM</p>
+      <p>Phòng chiếu: 7 • Ghế: 700</p>
+      <button class="btn btn-sm" onclick="event.stopPropagation()">Xem lịch chiếu</button>
+    </div>
+
+    <!-- RẠP 3 -->
+    <div class="cinema-card"
+         data-link="booking.html?cinema=Wolf Thủ Đức">
+
+      <h3>Wolf Thủ Đức</h3>
+      <p>Võ Văn Ngân, TP.Thủ Đức</p>
+      <p>Phòng chiếu: 6 • Ghế: 650</p>
+      <button class="btn btn-sm" onclick="event.stopPropagation()">Xem lịch chiếu</button>
+    </div>
+
+  </div>
+</main>
+
+<script>
+// ===============================
+// CLICK RẠP → BOOKING.HTML
+// ===============================
+document.querySelectorAll(".cinema-card").forEach(card => {
+
+  card.style.cursor = "pointer";
+
+  card.addEventListener("click", function (e) {
+    // Ngưng click nếu nhấn vào nút
+    if (e.target.closest("button")) return;
+
+    const url = this.dataset.link;
+    if (!url) return;
+
+    // Hiệu ứng fade-out
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 200);
+  });
+});
+</script>
+
 </body>
 </html>

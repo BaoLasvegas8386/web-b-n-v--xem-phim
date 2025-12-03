@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đặt vé</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Đặt vé</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="loadBookingPage()">
-  <header class="header"><div class="left"><div class="logo">Beta Cinemas</div></div></header>
+<body class="fade-in">
 
-  <div class="container">
-    <div class="booking-header">
-      <div id="movieInfo" style="flex:1"></div>
-      <div style="min-width:240px">
-        <label>Chọn rạp</label>
-        <select id="cinemaSelect" class="input" onchange="renderSeatGrid(); updateInfo()"></select>
-      </div>
-    </div>
-
-    <div class="screen">MÀN HÌNH</div>
-    <div id="seatGrid" class="seat-grid"></div>
-
-    <div class="info-box">
-      <div class="info-row"><div>Số ghế đã chọn</div><div id="seatCount">0</div></div>
-      <div class="info-row"><div>Giá 1 vé</div><div id="pricePer">75,000</div></div>
-      <div class="info-row"><div>Tổng tiền</div><div id="totalPrice">0</div></div>
-      <div style="text-align:right;margin-top:12px">
-        <button class="btn" onclick="goToPayment()">Thanh toán</button>
-      </div>
-    </div>
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html">Rạp</a>
+    </nav>
   </div>
 
-  <script src="script.js"></script>
+  <a href="login.html" class="btn btn-outline">Đăng nhập</a>
+</header>
+
+
+<main class="page-wrapper fade-slide-up">
+  <h1>Xác nhận thông tin đặt vé</h1>
+
+  <div class="booking-box">
+
+    <h2>Suất chiếu:</h2>
+
+    <!-- Chọn phim -->
+    <label class="form-group">
+      <span>Chọn phim</span>
+      <select id="movieSelect">
+        <option value="">-- Chọn phim --</option>
+        <option>Truy Tìm Long Diên Hương</option>
+        <option>Cưới Vợ Cho Cha</option>
+        <option>Phi Vụ Động Trời 2</option>
+        <option>Phòng Trọ Ma Bầu</option>
+      </select>
+    </label>
+
+    <!-- Chọn giờ -->
+    <label class="form-group">
+      <span>Suất chiếu</span>
+      <select id="showtimeSelect">
+        <option value="">-- Chọn giờ --</option>
+        <option>09:40</option>
+        <option>10:20</option>
+        <option>12:30</option>
+        <option>13:40</option>
+        <option>15:10</option>
+        <option>18:00</option>
+        <option>20:00</option>
+        <option>21:40</option>
+      </select>
+    </label>
+
+    <!-- Chọn rạp -->
+    <label class="form-group">
+      <span>Rạp chiếu</span>
+      <select id="cinema">
+        <option value="">-- Chọn rạp --</option>
+        <option>Wolf Biên Hòa</option>
+        <option>Wolf Quận 7</option>
+        <option>Wolf Thủ Đức</option>
+      </select>
+    </label>
+
+    <!-- Chọn ngày -->
+    <label class="form-group">
+      <span>Ngày chiếu</span>
+      <input type="date" id="date">
+    </label>
+
+    <button class="btn" id="goSeats">Tiếp tục chọn ghế</button>
+    <p class="note">* Dữ liệu được lưu bằng LocalStorage.</p>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
