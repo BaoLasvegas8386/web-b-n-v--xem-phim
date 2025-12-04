@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Wolf Cinemas - Vé xem phim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html">Rạp</a>
+    </nav>
+  </div>
+
+  <a href="login.html" class="btn btn-outline">Tài khoản</a>
+</header>
+
+<main class="page-wrapper narrow fade-slide-up">
+
+  <h1>Vé xem phim của bạn</h1>
+
+  <div class="ticket-box">
+
+    <div class="ticket-info">
+
+      <img id="ticketPoster" class="payment-poster" 
+           style="width:140px; border-radius:10px; margin-bottom:15px;">
+
+      <p><strong>Phim:</strong> <span id="movieName"></span></p>
+      <p><strong>Rạp:</strong> <span id="cinemaName"></span></p>
+      <p><strong>Ngày:</strong> <span id="dateShow"></span></p>
+      <p><strong>Giờ chiếu:</strong> <span id="showtime"></span></p>
+      <p><strong>Ghế:</strong> <span id="seatList"></span></p>
+
+      <!-- QR CODE -->
+      <img id="qrCode" class="qr-code">
+    </div>
+
+  </div>
+
+  <button class="btn" onclick="window.print()">In vé</button>
+
+</main>
+
+<script>
+/* LẤY DỮ LIỆU TỪ LOCAL STORAGE */
+const movie  = localStorage.getItem("movie");
+const cinema = localStorage.getItem("cinema");
+const date   = localStorage.getItem("date");
+const time   = localStorage.getItem("time");
+const img    = localStorage.getItem("img");
+const seats  = JSON.parse(localStorage.getItem("seats")) || [];
+
+/* ĐỔ DỮ LIỆU VÀO TRANG */
+document.getElementById("movieName").textContent  = movie;
+document.getElementById("cinemaName").textContent = cinema;
+document.getElementById("dateShow").textContent   = date;
+document.getElementById("showtime").textContent   = time;
+document.getElementById("seatList").textContent   = seats.join(", ");
+document.getElementById("ticketPoster").src       = img;
+
+/* TẠO QR CODE */
+const qrData = `Wolf Cinemas | ${movie} | ${cinema} | ${date} | ${time} | Ghế: ${seats.join(", ")}`;
+document.getElementById("qrCode").src =
+  `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+</script>
+
+</body>
+</html>

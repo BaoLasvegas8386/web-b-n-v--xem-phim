@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Thanh toán</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+  </div>
+</header>
+
+<main class="page-wrapper">
+
+  <h1 class="title">Thanh toán vé xem phim</h1>
+
+  <div class="payment-card">
+
+    <div class="info-section">
+      <h3>Thông tin vé</h3>
+
+      <p><strong>Phim:</strong> <span id="movieName"></span></p>
+      <p><strong>Rạp:</strong> <span id="cinemaName"></span></p>
+      <p><strong>Ngày:</strong> <span id="dateShow"></span></p>
+      <p><strong>Giờ chiếu:</strong> <span id="showtime"></span></p>
+      <p><strong>Ghế:</strong> <span id="seatList"></span></p>
+    </div>
+
+    <div class="pay-section">
+      <h3>Phương thức thanh toán</h3>
+
+      <select id="method" class="select-pay">
+        <option>Ví MoMo</option>
+        <option>ATM nội địa</option>
+        <option>Visa/MasterCard</option>
+      </select>
+
+      <p class="total">
+        Tổng tiền: <strong id="totalMoney"></strong>
+      </p>
+
+      <button id="confirmPay" class="btn-glow">Thanh toán</button>
+      <div id="loading" class="loading hidden">Đang xử lý...</div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
