@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Quản trị</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html">Rạp</a>
+      <a href="booking.html">Đặt vé</a>
+    </nav>
+  </div>
+  <div class="right">
+    <a href="login.html" class="btn btn-outline">Đăng xuất</a>
+  </div>
+</header>
+
+<main class="page-wrapper">
+  <h1>Quản lý đơn đặt vé</h1>
+  <p class="sub-text">Dữ liệu demo được lưu trong LocalStorage.</p>
+
+  <div class="table-wrapper">
+    <table class="table" id="adminTable">
+      <thead>
+        <tr>
+          <th>Phim</th>
+          <th>Rạp</th>
+          <th>Suất chiếu</th>
+          <th>Ngày</th>
+          <th>Ghế</th>
+          <th>Tổng tiền</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- script.js render -->
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

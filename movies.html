@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Wolf Cinemas - Phim đang chiếu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+    <div class="left">
+        <div class="logo">Wolf Cinemas</div>
+        <nav class="menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="movies.html" class="active">Phim</a>
+            <a href="cinemas.html">Rạp</a>
+            <a href="booking.html">Đặt vé</a>
+        </nav>
+    </div>
+    <div class="right">
+        <input class="search" placeholder="Tìm phim, rạp...">
+        <div id="userArea">
+  <a href="login.html" class="btn btn-outline" id="loginBtnHeader">Đăng nhập</a>
+</div>
+
+</header>
+
+<main class="page-wrapper fade-slide-up">
+
+    <h1 class="section-title">Tất cả phim</h1>
+
+    <div class="movies-grid">
+
+        <!-- PHIM 1 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Phòng%20Trọ%20Ma%20Bầu&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg&time=10:00">
+
+            <img src="Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" alt="Phòng Trọ Ma Bầu">
+            <div class="movie-info">
+                <h3>Phòng Trọ Ma Bầu</h3>
+                <p class="movie-meta">2D • 101 phút</p>
+                <p class="movie-tag">Kinh dị, Hài hước</p>
+            </div>
+        </article>
+
+        <!-- PHIM 2 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Truy%20Tìm%20Long%20Diên%20Hương&img=Picture/truytimlongdienhuong.jpg&time=10:20">
+
+            <img src="Picture/truytimlongdienhuong.jpg" alt="Truy Tìm Long Diên Hương">
+            <div class="movie-info">
+                <h3>Truy Tìm Long Diên Hương</h3>
+                <p class="movie-meta">2D • 103 phút</p>
+                <p class="movie-tag">Hành động, Hài hước</p>
+            </div>
+        </article>
+
+        <!-- PHIM 3 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Cưới%20Vợ%20Cho%20Cha&img=Picture/cuoivochocha.jpg&time=09:40">
+
+            <img src="Picture/cuoivochocha.jpg" alt="Cưới Vợ Cho Cha">
+            <div class="movie-info">
+                <h3>Cưới Vợ Cho Cha</h3>
+                <p class="movie-meta">2D • 112 phút</p>
+                <p class="movie-tag">Hài hước, Tình cảm</p>
+            </div>
+        </article>
+
+        <!-- PHIM 4 -->
+        <article class="movie-card"
+            data-link="booking.html?movie=Phi%20Vụ%20Động%20Trời%202&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg&time=11:10">
+
+            <img src="https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" alt="Phi Vụ Động Trời 2">
+            <div class="movie-info">
+                <h3>Phi Vụ Động Trời 2</h3>
+                <p class="movie-meta">2D • 107 phút</p>
+                <p class="movie-tag">Hoạt hình, Phiêu lưu</p>
+            </div>
+        </article>
+
+    </div>
+
+</main>
+
+<script>
+/* ============================
+    CLICK MOVIE-CARD → BOOKING
+============================ */
+document.querySelectorAll(".movie-card").forEach(card => {
+    card.style.cursor = "pointer"; // tạo cảm giác có thể bấm
+
+    card.addEventListener("click", function(event) {
+        // Nếu click vào nút giờ chiếu thì không chạy card
+        if (event.target.closest(".showtime-btn")) return;
+
+        const url = this.dataset.link;
+        if (!url) return;
+
+        // hiệu ứng fade-out nhẹ
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 200);
+    });
+});
+</script>
+
+</body>
+</html>

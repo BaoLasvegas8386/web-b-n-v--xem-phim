@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolf Cinemas - Trang chủ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+  <div class="left">
+    <div class="logo">Wolf Cinemas</div>
+    <nav class="menu">
+      <a href="index.html" class="active">Trang chủ</a>
+      <a href="movies.html">Phim</a>
+      <a href="cinemas.html">Rạp</a>
+      <a href="booking.html">Đặt vé</a>
+    </nav>
+  </div>
+
+  <div class="right">
+    <div class="search-container">
+      <input class="search" id="searchInput" placeholder="Tìm phim, rạp...">
+      <div id="searchResults" class="search-results hidden"></div>
+    <div id="userArea">
+  <a href="login.html" class="btn btn-outline" id="loginBtnHeader">Đăng nhập</a>
+</div>
+
+</header>
+
+<main>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Đặt vé xem phim online cực nhanh</h1>
+      <p>Chọn ghế yêu thích, không cần xếp hàng – trải nghiệm rạp phim hiện đại cùng Wolf Cinemas.</p>
+
+      <div class="hero-actions"> 
+        <a href="movies.html" class="btn">Đặt vé ngay</a>
+        <a href="booking-guide.html" class="btn btn-outline">Hướng dẫn đặt vé</a>
+      </div>
+    </div>
+
+    <div class="hero-poster floating">
+      <div class="poster-glow"></div>
+      <img src="Picture/truytimlongdienhuong.jpg" alt="Poster phim" />
+    </div>
+  </section>
+
+  <!-- MOVIES -->
+  <section class="movies-wrapper fade-slide-up">
+    <div class="section-header">
+      <h2>Phim đang chiếu</h2>
+      <a href="movies.html" class="link">Xem tất cả</a>
+    </div>
+
+    <div class="movies-grid">
+
+      <!-- PHIM 1 -->
+      <article class="movie-card"
+        data-link="booking.html?movie=Truy%20Tìm%20Long%20Diên%20Hương&img=Picture/truytimlongdienhuong.jpg&time=10:20">
+
+        <img src="Picture/truytimlongdienhuong.jpg" alt="Truy Tìm Long Diên Hương">
+
+        <div class="movie-info">
+          <h3>Truy Tìm Long Diên Hương</h3>
+          <p class="movie-meta">2D • 103 phút</p>
+          <p class="movie-tag">Hành động, Hài hước</p>
+          <div class="movie-times">
+            <a href="booking.html?movie=Truy Tìm Long Diên Hương&time=10:20&img=Picture/truytimlongdienhuong.jpg"
+               class="showtime-btn" onclick="event.stopPropagation()">10:20</a>
+            <a href="booking.html?movie=Truy Tìm Long Diên Hương&time=13:40&img=Picture/truytimlongdienhuong.jpg"
+               class="showtime-btn" onclick="event.stopPropagation()">13:40</a>
+            <a href="booking.html?movie=Truy Tìm Long Diên Hương&time=18:00&img=Picture/truytimlongdienhuong.jpg"
+               class="showtime-btn" onclick="event.stopPropagation()">18:00</a>
+            <a href="booking.html?movie=Truy Tìm Long Diên Hương&time=21:40&img=Picture/truytimlongdienhuong.jpg"
+               class="showtime-btn" onclick="event.stopPropagation()">21:40</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PHIM 2 -->
+      <article class="movie-card"
+        data-link="booking.html?movie=Cưới%20Vợ%20Cho%20Cha&img=Picture/cuoivochocha.jpg&time=09:40">
+
+        <img src="Picture/cuoivochocha.jpg" alt="Cưới Vợ Cho Cha">  
+        <div class="movie-info">
+          <h3>Cưới Vợ Cho Cha</h3>
+          <p class="movie-meta">2D • 112 phút</p>
+          <p class="movie-tag">Hài hước, Tình cảm</p>
+          <div class="movie-times">
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Cưới Vợ Cho Cha&time=09:40&img=Picture/cuoivochocha.jpg" class="showtime-btn">09:40</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Cưới Vợ Cho Cha&time=12:30&img=Picture/cuoivochocha.jpg" class="showtime-btn">12:30</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Cưới Vợ Cho Cha&time=15:10&img=Picture/cuoivochocha.jpg" class="showtime-btn">15:10</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Cưới Vợ Cho Cha&time=20:00&img=Picture/cuoivochocha.jpg" class="showtime-btn">20:00</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PHIM 3 -->
+      <article class="movie-card"
+        data-link="booking.html?movie=Phi%20Vụ%20Động%20Trời%202&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg&time=11:10">
+
+        <img src="https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" alt="Phi Vụ Động Trời 2">
+        <div class="movie-info">
+          <h3>Phi Vụ Động Trời 2</h3>
+          <p class="movie-meta">2D • 107 phút</p>
+          <p class="movie-tag">Hoạt hình, Phiêu lưu</p>
+          <div class="showtimes">
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phi Vụ Động Trời 2&time=11:10&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" class="showtime-btn">11:10</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phi Vụ Động Trời 2&time=14:00&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" class="showtime-btn">14:00</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phi Vụ Động Trời 2&time=16:30&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" class="showtime-btn">16:30</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phi Vụ Động Trời 2&time=19:00&img=https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/zootopia2.jpg" class="showtime-btn">19:00</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PHIM 4 -->
+      <article class="movie-card"
+        data-link="booking.html?movie=Phòng%20Trọ%20Ma%20Bầu&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg&time=10:00">
+
+        <img src="https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" alt="Phòng Trọ Ma Bầu">
+        <div class="movie-info">
+          <h3>Phòng Trọ Ma Bầu</h3>
+          <p class="movie-meta">2D • 101 phút</p>
+          <p class="movie-tag">Kinh dị, Hài hước</p>
+          <div class="movie-times">
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phòng Trọ Ma Bầu&time=10:00&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" class="showtime-btn">10:00</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phòng Trọ Ma Bầu&time=12:20&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" class="showtime-btn">12:20</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phòng Trọ Ma Bầu&time=17:00&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" class="showtime-btn">17:00</a>
+            <a onclick="event.stopPropagation()" href="booking.html?movie=Phòng Trọ Ma Bầu&time=21:20&img=Picture/phttps://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/phongtroma-bau.jpg" class="showtime-btn">21:20</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

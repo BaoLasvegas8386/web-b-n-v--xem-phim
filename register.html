@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Wolf Cinemas - Đăng ký</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fade-in">
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h1>Đăng ký</h1>
+
+    <label class="form-group">
+      <span>Họ và tên</span>
+      <input type="text" id="name" placeholder="Nhập tên...">
+    </label>
+
+    <label class="form-group">
+      <span>Email</span>
+      <input type="email" id="email" placeholder="Nhập email...">
+    </label>
+
+    <label class="form-group">
+      <span>Mật khẩu</span>
+      <input type="password" id="password" placeholder="Nhập mật khẩu...">
+    </label>
+
+    <button class="btn" id="registerBtn">Đăng ký</button>
+
+    <p class="auth-text">
+      Đã có tài khoản?
+      <a href="login.html">Đăng nhập</a>
+    </p>
+  </div>
+</div>
+
+<script>
+document.getElementById("registerBtn").onclick = () => {
+  const user = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    password: document.getElementById("password").value.trim()
+  };
+
+  if (!user.name || !user.email || !user.password) {
+    alert("Vui lòng nhập đủ thông tin!");
+    return;
+  }
+
+  // Lấy danh sách người dùng đã có, hoặc tạo mảng rỗng nếu chưa có
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Kiểm tra xem email đã tồn tại chưa
+  const emailExists = users.some(existingUser => existingUser.email === user.email);
+  if (emailExists) {
+    alert("Email này đã được đăng ký!");
+    return;
+  }
+
+  // Thêm người dùng mới vào danh sách và lưu lại
+  users.push(user);
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("Đăng ký thành công!");
+  window.location.href = "login.html";
+};
+</script>
+
+</body>
+</html>
