@@ -10,13 +10,13 @@ if (searchInput && searchBox) {
   const movies = [
     {
       title: "Truy Tìm Long Diên Hương",
-      img: "Picture/truytimlongdienhuong.jpg.jpg",
+      img: "https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/truytimlongdienhuong.jpg.jpg",
       genre: "Hành động, Hài hước",
       defaultTime: "10:20"
     },
     {
       title: "Cưới Vợ Cho Cha",
-      img: "Picture/cuoivochocha.jpg.jpg",
+      img: "https://hlmmzbjselddinthegoq.supabase.co/storage/v1/object/public/poster/Untitled%20folder/cuoivochocha.jpg.jpg",
       genre: "Hài hước, Tình cảm",
       defaultTime: "09:40"
     },
